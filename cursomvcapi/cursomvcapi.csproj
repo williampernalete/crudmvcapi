@@ -165,6 +165,7 @@
     <Compile Include="Controllers\AccessController.cs" />
     <Compile Include="Controllers\AnimalController.cs" />
     <Compile Include="Controllers\BaseController.cs" />
+    <Compile Include="Controllers\FacturaController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ValuesController.cs" />
     <Compile Include="Global.asax.cs">
@@ -188,11 +189,15 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>DB.edmx</DependentUpon>
     </Compile>
+    <Compile Include="Models\facturas.cs">
+      <DependentUpon>DB.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\user.cs">
       <DependentUpon>DB.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\WS\AccessViewModel.cs" />
     <Compile Include="Models\WS\AnimalViewModel.cs" />
+    <Compile Include="Models\WS\ListFacturaViewModel.cs" />
     <Compile Include="Models\WS\ListAnimalViewModel.cs" />
     <Compile Include="Models\WS\Reply.cs" />
     <Compile Include="Models\WS\SecurityViewModel.cs" />

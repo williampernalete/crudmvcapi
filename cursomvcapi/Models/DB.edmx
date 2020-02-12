@@ -14,6 +14,15 @@
           <Property Name="idState" Type="int" />
           <Property Name="patas" Type="int" />
         </EntityType>
+        <EntityType Name="facturas">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="numfactura" Type="nchar" MaxLength="10" Nullable="false" />
+          <Property Name="monto" Type="decimal" Precision="18" Scale="0" />
+          <Property Name="fecha" Type="datetime" />
+        </EntityType>
         <EntityType Name="user">
           <Key>
             <PropertyRef Name="int" />
@@ -26,6 +35,7 @@
         </EntityType>
         <EntityContainer Name="cursomvcapiModelStoreContainer">
           <EntitySet Name="animal" EntityType="Self.animal" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="facturas" EntityType="Self.facturas" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="user" EntityType="Self.user" Schema="dbo" store:Type="Tables" />
         </EntityContainer>
       </Schema></edmx:StorageModels>
@@ -35,6 +45,7 @@
         <EntityContainer Name="cursomvcapiEntities" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="user" EntityType="cursomvcapiModel.user" />
           <EntitySet Name="animal" EntityType="cursomvcapiModel.animal" />
+          <EntitySet Name="facturas" EntityType="cursomvcapiModel.facturas" />
         </EntityContainer>
         <EntityType Name="user">
           <Key>
@@ -54,6 +65,15 @@
           <Property Name="name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="idState" Type="Int32" />
           <Property Name="patas" Type="Int32" />
+        </EntityType>
+        <EntityType Name="facturas">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="numfactura" Type="String" Nullable="false" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="monto" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="fecha" Type="DateTime" Precision="3" />
         </EntityType>
       </Schema>
     </edmx:ConceptualModels>
@@ -78,6 +98,16 @@
                 <ScalarProperty Name="patas" ColumnName="patas" />
                 <ScalarProperty Name="idState" ColumnName="idState" />
                 <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="facturas">
+            <EntityTypeMapping TypeName="cursomvcapiModel.facturas">
+              <MappingFragment StoreEntitySet="facturas">
+                <ScalarProperty Name="fecha" ColumnName="fecha" />
+                <ScalarProperty Name="monto" ColumnName="monto" />
+                <ScalarProperty Name="numfactura" ColumnName="numfactura" />
                 <ScalarProperty Name="id" ColumnName="id" />
               </MappingFragment>
             </EntityTypeMapping>
