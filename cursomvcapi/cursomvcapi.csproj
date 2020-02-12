@@ -189,6 +189,9 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>DB.edmx</DependentUpon>
     </Compile>
+    <Compile Include="Models\detallefactura.cs">
+      <DependentUpon>DB.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\facturas.cs">
       <DependentUpon>DB.tt</DependentUpon>
     </Compile>
@@ -197,6 +200,8 @@
     </Compile>
     <Compile Include="Models\WS\AccessViewModel.cs" />
     <Compile Include="Models\WS\AnimalViewModel.cs" />
+    <Compile Include="Models\WS\DetalleFacturaViewModel.cs" />
+    <Compile Include="Models\WS\FacturaViewModel.cs" />
     <Compile Include="Models\WS\ListFacturaViewModel.cs" />
     <Compile Include="Models\WS\ListAnimalViewModel.cs" />
     <Compile Include="Models\WS\Reply.cs" />

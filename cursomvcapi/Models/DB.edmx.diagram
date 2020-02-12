@@ -8,6 +8,7 @@
         <EntityTypeShape EntityType="cursomvcapiModel.user" Width="1.5" PointX="0.75" PointY="0.75" />
         <EntityTypeShape EntityType="cursomvcapiModel.animal" Width="1.5" PointX="3.375" PointY="0.75" />
         <EntityTypeShape EntityType="cursomvcapiModel.facturas" Width="1.5" PointX="0.75" PointY="3.75" />
+        <EntityTypeShape EntityType="cursomvcapiModel.detallefactura" Width="1.5" PointX="3.375" PointY="3.75" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

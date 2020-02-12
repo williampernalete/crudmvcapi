@@ -14,6 +14,17 @@
           <Property Name="idState" Type="int" />
           <Property Name="patas" Type="int" />
         </EntityType>
+        <EntityType Name="detallefactura">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="numfactura" Type="nchar" MaxLength="10" Nullable="false" />
+          <Property Name="codarticulo" Type="nchar" MaxLength="10" Nullable="false" />
+          <Property Name="cantidad" Type="int" Nullable="false" />
+          <Property Name="preciounitario" Type="decimal" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="total" Type="decimal" Precision="18" Scale="0" Nullable="false" />
+        </EntityType>
         <EntityType Name="facturas">
           <Key>
             <PropertyRef Name="id" />
@@ -35,6 +46,7 @@
         </EntityType>
         <EntityContainer Name="cursomvcapiModelStoreContainer">
           <EntitySet Name="animal" EntityType="Self.animal" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="detallefactura" EntityType="Self.detallefactura" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="facturas" EntityType="Self.facturas" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="user" EntityType="Self.user" Schema="dbo" store:Type="Tables" />
         </EntityContainer>
@@ -46,6 +58,7 @@
           <EntitySet Name="user" EntityType="cursomvcapiModel.user" />
           <EntitySet Name="animal" EntityType="cursomvcapiModel.animal" />
           <EntitySet Name="facturas" EntityType="cursomvcapiModel.facturas" />
+          <EntitySet Name="detallefactura" EntityType="cursomvcapiModel.detallefactura" />
         </EntityContainer>
         <EntityType Name="user">
           <Key>
@@ -74,6 +87,17 @@
           <Property Name="numfactura" Type="String" Nullable="false" MaxLength="10" FixedLength="true" Unicode="true" />
           <Property Name="monto" Type="Decimal" Precision="18" Scale="0" />
           <Property Name="fecha" Type="DateTime" Precision="3" />
+        </EntityType>
+        <EntityType Name="detallefactura">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="numfactura" Type="String" Nullable="false" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="codarticulo" Type="String" Nullable="false" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="cantidad" Type="Int32" Nullable="false" />
+          <Property Name="preciounitario" Type="Decimal" Nullable="false" Precision="18" Scale="0" />
+          <Property Name="total" Type="Decimal" Nullable="false" Precision="18" Scale="0" />
         </EntityType>
       </Schema>
     </edmx:ConceptualModels>
@@ -107,6 +131,18 @@
               <MappingFragment StoreEntitySet="facturas">
                 <ScalarProperty Name="fecha" ColumnName="fecha" />
                 <ScalarProperty Name="monto" ColumnName="monto" />
+                <ScalarProperty Name="numfactura" ColumnName="numfactura" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="detallefactura">
+            <EntityTypeMapping TypeName="cursomvcapiModel.detallefactura">
+              <MappingFragment StoreEntitySet="detallefactura">
+                <ScalarProperty Name="total" ColumnName="total" />
+                <ScalarProperty Name="preciounitario" ColumnName="preciounitario" />
+                <ScalarProperty Name="cantidad" ColumnName="cantidad" />
+                <ScalarProperty Name="codarticulo" ColumnName="codarticulo" />
                 <ScalarProperty Name="numfactura" ColumnName="numfactura" />
                 <ScalarProperty Name="id" ColumnName="id" />
               </MappingFragment>

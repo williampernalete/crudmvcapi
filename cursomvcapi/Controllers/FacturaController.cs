@@ -49,5 +49,47 @@ namespace cursomvcapi.Controllers
 			}
 			return oR;
 		}
+
+		[HttpGet]
+		public Reply Show([FromBody] DetalleFacturaViewModel model)
+		{
+			Reply oResp = new Reply();
+			oResp.result = 0;
+
+			if(!Verify(model.token))
+			{
+				oResp.mensaje = "no esta autorizado";
+				return oResp;
+			}
+			try
+			{
+				using (cursomvcapiEntities db = new cursomvcapiEntities())
+				{
+					List<DetalleFacturaViewModel> oDetalle = (from d in db.detallefactura
+													 where d.numfactura == model.NumFactura
+													 select new DetalleFacturaViewModel
+													 {
+														 Id= d.id,
+														 NumFactura = d.numfactura,
+														 CodArticulo = d.codarticulo,
+														 Cantidad = d.cantidad,
+														 PrecioUnitario= d.preciounitario,
+														 Total = d.total
+													 }).ToList();
+					
+
+					oResp.data = oDetalle;
+					oResp.result = 1;
+
+
+
+				}
+			}
+			catch(Exception ex)
+			{
+				oResp.mensaje = "problemas en el show";
+			}
+			return oResp;
+		}
     }
 }
